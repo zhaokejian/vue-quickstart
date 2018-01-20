@@ -12,24 +12,24 @@
 
 <body>
   <div id="app">
-    <div v-if="type === 'A'">
-      A
-    </div>
-    <div v-else-if="type === 'B'">
-      B
-    </div>
-    <div v-else-if="type === 'C'">
-      C
-    </div>
-    <div v-else>
-      Not A/B/C
-    </div>
+    <ul>
+      <li v-for="(item, index) in items">
+        {{ parentMessage }} - {{ index }} - {{ item.message }}
+      </li>
+    </ul>
   </div>
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        type: 'A'
+        parentMessage: 'Parent',
+        items: [{
+            message: 'Foo'
+          },
+          {
+            message: 'Bar'
+          }
+        ]
       }
     })
   </script>

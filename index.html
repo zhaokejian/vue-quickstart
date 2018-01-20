@@ -11,15 +11,26 @@
 
 <body>
   <div id="app">
-    <span v-if="seen">
-    出现
-  </span>
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
   </div>
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        seen: true
+        todos: [{
+            text: '学习 JavaScript'
+          },
+          {
+            text: '学习 Vue'
+          },
+          {
+            text: '整个牛项目'
+          }
+        ]
       }
     })
   </script>

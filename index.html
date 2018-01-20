@@ -12,11 +12,9 @@
 
 <body>
   <div id="app">
-    <ul>
-      <li v-for="value in object">
-        {{ value }}
-      </li>
-    </ul>
+    <div v-for="(value, key, index) in object">
+      {{ index }}. {{ key }}: {{ value }}
+    </div>
   </div>
   <script type="text/javascript">
     var app = new Vue({

@@ -18,9 +18,15 @@
     var app = new Vue({
       el: '#app',
       data: {
-        classObject: {
-          active: true,
-          test2: true
+        isActive: true,
+        error: null
+      },
+      computed: {
+        classObject: function() {
+          return {
+            active: this.isActive && !this.error,
+            'text-danger': this.error && this.error.type === 'fatal'
+          }
         }
       }
     })

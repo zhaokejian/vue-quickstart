@@ -12,28 +12,24 @@
 
 <body>
   <div id="app">
-    <div v-bind:class="classObject" v-bind:style="styleObject">
-      <p>HelloWorld!</p>
+    <div v-if="type === 'A'">
+      A
+    </div>
+    <div v-else-if="type === 'B'">
+      B
+    </div>
+    <div v-else-if="type === 'C'">
+      C
+    </div>
+    <div v-else>
+      Not A/B/C
     </div>
   </div>
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        isActive: true,
-        error: null,
-        styleObject: {
-          color: 'red',
-          fontSize: '13px'
-        }
-      },
-      computed: {
-        classObject: function() {
-          return {
-            active: this.isActive && !this.error,
-            'text-danger': this.error && this.error.type === 'fatal'
-          }
-        }
+        type: 'A'
       }
     })
   </script>

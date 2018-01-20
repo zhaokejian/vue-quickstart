@@ -13,8 +13,8 @@
 <body>
   <div id="app">
     <ul>
-      <li v-for="(item, index) in items">
-        {{ parentMessage }} - {{ index }} - {{ item.message }}
+      <li v-for="value in object">
+        {{ value }}
       </li>
     </ul>
   </div>
@@ -22,14 +22,11 @@
     var app = new Vue({
       el: '#app',
       data: {
-        parentMessage: 'Parent',
-        items: [{
-            message: 'Foo'
-          },
-          {
-            message: 'Bar'
-          }
-        ]
+        object: {
+          firstName: 'John',
+          lastName: 'Doe',
+          age: 30
+        }
       }
     })
   </script>

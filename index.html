@@ -29,7 +29,7 @@
       },
       methods: {
         modifyObj: function() {
-          this.object.newAttr = 'New';//DOM不会更新
+          Vue.set(this.object, 'gender', 'male')
         }
       }
     })

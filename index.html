@@ -12,6 +12,7 @@
 
 <body>
   <div id="app">
+    <p @click="modifyObj">点击修改object</p>
     <div v-for="(value, key, index) in object">
       {{ index }}. {{ key }}: {{ value }}
     </div>
@@ -24,6 +25,11 @@
           firstName: 'John',
           lastName: 'Doe',
           age: 30
+        }
+      },
+      methods: {
+        modifyObj: function() {
+          this.object.firstName = 'New';
         }
       }
     })

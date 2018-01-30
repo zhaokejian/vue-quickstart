@@ -12,26 +12,15 @@
 
 <body>
   <div id="app">
-    <p @click="modifyObj">点击修改object</p>
-    <div v-for="(value, key, index) in object">
-      {{ index }}. {{ key }}: {{ value }}
-    </div>
-  </div>
+    <component-tag></component-tag>
   <script type="text/javascript">
+    //确保在初始化根实例之前注册组件
+    Vue.component('component-tag', {
+      template: "<p>this is a global component</p>"
+    })
+
     var app = new Vue({
-      el: '#app',
-      data: {
-        object: {
-          firstName: 'John',
-          lastName: 'Doe',
-          age: 30
-        }
-      },
-      methods: {
-        modifyObj: function() {
-          Vue.set(this.object, 'gender', 'male')
-        }
-      }
+      el: '#app'
     })
   </script>
 </body>

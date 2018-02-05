@@ -13,9 +13,9 @@
   <div id="app">
       <!--
           props声明的数据为camelCase命名时，html中使用kabab-case（myMessage改为my-message）
-          静态指定数据为字符串'message'
+          动态指定数据为data中的数据：message，页面显示字符串'dymanic'
       -->
-      <item my-message='message'></item>
+      <item :my-message='message'></item>
   </div>
   <script type="text/javascript">
     // 定义名为 todo-item 的新组件

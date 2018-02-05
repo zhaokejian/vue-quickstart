@@ -13,14 +13,23 @@
 <body>
   <div id="app">
     <component-tag></component-tag>
+  </div>
   <script type="text/javascript">
     //确保在初始化根实例之前注册组件
-    Vue.component('component-tag', {
-      template: "<p>this is a global component</p>"
-    })
+    var Child = {
+      template: '<span>{{ message }}</span>',
+      data() {
+        return {
+          message: 'hello'
+        }
+      }
+    }
 
     var app = new Vue({
-      el: '#app'
+      el: '#app',
+      components: {
+        'component-tag': Child
+      }
     })
   </script>
 </body>

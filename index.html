@@ -6,29 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
   <title>Vue</title>
 </head>
 
 <body>
   <div id="app">
-    <component-tag></component-tag>
+      <!--
+          props声明的数据为camelCase命名时，html中使用kabab-case（myMessage改为my-message）
+          静态指定数据为字符串'message'
+      -->
+      <item my-message='message'></item>
   </div>
   <script type="text/javascript">
-    //确保在初始化根实例之前注册组件
-    var Child = {
-      template: '<span>{{ message }}</span>',
-      data() {
-        return {
-          message: 'hello'
-        }
-      }
-    }
+    // 定义名为 todo-item 的新组件
+    Vue.component('item', {
+      props: ['myMessage'],//名为todo的自定义特性
+      template: '<span>{{ myMessage }}</span>'//动态文本
+    })
 
     var app = new Vue({
       el: '#app',
-      components: {
-        'component-tag': Child
+      data: {
+        message: 'dymanic'
       }
     })
   </script>
